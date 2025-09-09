@@ -1,0 +1,22 @@
+/* Project cards – remove unwanted blue backgrounds */
+.projects-title a {
+  background: transparent !important;
+  color: inherit !important;     /* keep heading color */
+  text-decoration: none;
+}
+.projects-title a:hover {
+  color: #00b3ff !important;        /* hover color */
+  text-decoration: underline;
+}
+
+/* Project footer links (GitHub, Details, etc.) */
+.custom-link {
+  background: transparent !important;
+  color: #000000 !important;        /* light gray */
+  text-decoration: none;
+  padding: 0 !important;
+}
+.custom-link:hover {
+  color: #00b3ff !important;        /* white on hover */
+  text-decoration: underline;    /* or none if you prefer */
+}

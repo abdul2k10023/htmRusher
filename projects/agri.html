@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AgriOT – Greenhouse IoT Nodes | Abdul Haseeb</title>
+  <meta name="description" content="ESP32 RS-485 sensor nodes for soil moisture/pH/NPK, MQTT control & schedules, OTA updates, and Grafana dashboards." />
+  <link rel="icon" href="../images/favicon.png" />
+
+  <!-- Fonts & CSS (same as index, but paths go one level up) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="../css/bootstrap.min.css" rel="stylesheet" />
+  <link href="../css/bootstrap-icons.css" rel="stylesheet" />
+  <link href="../css/magnific-popup.css" rel="stylesheet" />
+  <link href="../css/templatemo-first-portfolio-style.css" rel="stylesheet" />
+  <style>
+    .project-hero { padding: 96px 0 40px; background: #535da1; color: #fff; }
+    .stack-badge { display:inline-block; padding:.3rem .6rem; border-radius:999px; background:#f3f4f6; margin:.15rem; font-size:.85rem; }
+    .stack-dark-badge { display:inline-block; padding:.3rem .6rem; border-radius:999px; background:#6c757d; color:#fff; margin:.15rem; font-size:.85rem; }
+    .kbd {font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; background:#111827; color:#e5e7eb; padding:.2rem .45rem; border-radius:.35rem;}
+    .arch {background:#f8fafc;border-radius:16px;padding:20px}
+    .spec li{margin-bottom:.35rem}
+  </style>
+</head>
+
+<body>
+  <!-- navbar (same as index, but links adjusted) -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a href="../index.html" class="navbar-brand mx-auto mx-lg-0">Haseeb</a>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-lg-5">
+          <li class="nav-item"><a class="nav-link" href="../index.html#section_1">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#section_2">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#section_3">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#section_4">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="../index.html#section_5">Contact</a></li>
+        </ul>
+        <div class="d-lg-flex align-items-center d-none ms-auto">
+          <a class="custom-btn btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="project-hero">
+    <div class="container">
+      <div class="row align-items-center gy-4">
+        <div class="col-lg-7">
+          <h1 class="text-white mb-2">AgriOT – Greenhouse IoT Nodes</h1>
+          <p class="lead mb-3 text-white">ESP32 RS-485 nodes reading soil sensors (moisture / pH / NPK), with MQTT control,
+            OTA firmware, and Grafana dashboards for growers.</p>
+          <div>
+            <span class="stack-dark-badge">ESP32 / ESP-IDF</span>
+            <span class="stack-dark-badge">FreeRTOS</span>
+            <span class="stack-dark-badge">RS-485 (Modbus)</span>
+            <span class="stack-dark-badge">MQTT</span>
+            <span class="stack-dark-badge">Flask / Node.js</span>
+            <span class="stack-dark-badge">Grafana</span>
+          </div>
+        </div>
+        <div class="col-lg-5">
+          <img class="img-fluid rounded-4 shadow" src="../images/projects/grafana.jpg" alt="AgriOT overview">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Overview -->
+    <section class="section-padding">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-7">
+          <h2 class="mb-3">Overview</h2>
+          <p>
+            The AgriOT project is about building a fully automated greenhouse monitoring and irrigation system with the goal of
+            <strong>increasing crop yield in controlled environments</strong>. The vision is to have sensor nodes spread across
+            the greenhouse — each covering a cluster of plants or crops — that continuously measure critical environmental and
+            soil conditions.
+          </p>
+          <p>
+            Each ESP32-based RS-485 node reports values like <em>ambient temperature, humidity, soil temperature, soil moisture,
+            soil pH, and light intensity</em>. Based on this data, the system automatically irrigates each crop or plant through
+            per-zone pump/valve control. All readings and states are published over <strong>MQTT</strong>, stored in databases,
+            and visualized in Grafana dashboards for real-time insight.
+          </p>
+          <p>
+            This setup not only ensures optimal irrigation but also builds a large dataset that can later be used to
+            <strong>train machine learning models</strong> for crop growth prediction and yield estimation. The idea is to move
+            towards predictive agriculture where future irrigation schedules and growth forecasts are guided by historical data.
+          </p>
+          <div class="arch mt-3">
+            <h5 class="mb-2">Future Work</h5>
+            <ul class="spec">
+              <li>Integrate <strong>plant nutrient monitoring</strong> using camera modules on Raspberry Pi.</li>
+              <li>Capture multiple plant images per day and analyze monthly changes in growth and health.</li>
+              <li>Use computer vision + ML pipelines to compare progress and detect stress early.</li>
+              <li>Expand datasets to improve yield prediction and optimize farming strategies.</li>
+            </ul>
+          </div>
+            <div class="arch mt-3">
+              <h5 class="mb-2">Architecture</h5>
+              <ul class="mb-0 spec">
+                <li>ESP32 firmware (C/ESP-IDF) with FreeRTOS tasks: <span class="kbd">sensors</span>, <span class="kbd">uplink</span>, <span class="kbd">ota</span>, <span class="kbd">control</span>.</li>
+                <li>RS-485 (Modbus-RTU) multi-drop bus for pH/moisture/NPK sensors; optional flow meter & pump relay.</li>
+                <li>MQTT broker (Mosquitto/EMQX). Topics: <span class="kbd">agriot/&lt;nodeId&gt;/tele</span>, <span class="kbd">.../state</span>, <span class="kbd">.../cmd</span>, <span class="kbd">.../ota</span>.</li>
+                <li>Backend bridge (Python/Node) for rules, acks, and persistence to PostgreSQL/Influx.</li>
+                <li>Grafana dashboards + alerting for thresholds and offline nodes.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-5">
+            <h2 class="mb-3">Key FW Features</h2>
+            <ul class="spec">
+              <li>FreeRTOS-based real-time system with dedicated tasks</li>
+              <li>MQTT-based topic logging & subscription</li>
+              <li>MQTT-driven OTA update pipeline</li>
+              <li>Motor (pump/valve) control with feedback</li>
+              <li>Improved error handling & reconnection strategies</li>
+            </ul>
+
+            <h2 class="mt-4 mb-3">Hardware</h2>
+            <ul class="spec">
+              <li>MCU: ESP32-WROOM-32.</li>
+              <li>Comms: RS-485 transceiver, ESD protection, bias/termination jumpers.</li>
+              <li>Power: 12 V input → buck 5 V / 3.3 V rails, reverse/over-voltage protection.</li>
+              <li>I/O: Relay driver for pump/valve, flowmeter input, I²C header for expansion.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screens / Gallery -->
+    <section class="projects section-padding pt-0">
+      <div class="container">
+        <h2 class="mb-4">Screens & Photos</h2>
+        <div class="row">
+          <div class="col-md-4 col-12 mb-4">
+            <a href="../images/projects/nikhil-KO4io-eCAXA-unsplash.jpg" class="popup-image">
+              <img src="../images/projects/nikhil-KO4io-eCAXA-unsplash.jpg" class="projects-image img-fluid rounded-3" alt="Node PCB">
+            </a>
+            <small class="d-block mt-2 text-muted">Node hardware</small>
+          </div>
+          <div class="col-md-4 col-12 mb-4">
+            <a href="../images/projects/the-5th-IQYR7N67dhM-unsplash.jpg" class="popup-image">
+              <img src="../images/projects/the-5th-IQYR7N67dhM-unsplash.jpg" class="projects-image img-fluid rounded-3" alt="Dashboard">
+            </a>
+            <small class="d-block mt-2 text-muted">Grafana dashboard</small>
+          </div>
+          <div class="col-md-4 col-12 mb-4">
+            <a href="../images/projects/true-agency-9Bjog5FZ-oc-unsplash.jpg" class="popup-image">
+              <img src="../images/projects/true-agency-9Bjog5FZ-oc-unsplash.jpg" class="projects-image img-fluid rounded-3" alt="Sensors">
+            </a>
+            <small class="d-block mt-2 text-muted">Soil sensors</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tech & Repos -->
+    <section class="section-padding pt-0">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-6">
+            <h2 class="mb-3">Tech Stack</h2>
+            <p>
+              <span class="stack-badge">ESP-IDF</span>
+              <span class="stack-badge">C / C++</span>
+              <span class="stack-badge">FreeRTOS</span>
+              <span class="stack-badge">Modbus-RTU</span>
+              <span class="stack-badge">Python</span>
+              <span class="stack-badge">Node.js</span>
+              <span class="stack-badge">MQTT</span>
+              <span class="stack-badge">PostgreSQL/Influx</span>
+              <span class="stack-badge">Grafana</span>
+              <span class="stack-badge">Docker</span>
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <h2 class="mb-3">Links</h2>
+            <p class="mb-1"><a class="custom-link" href="#" target="_blank">Firmware (GitHub)</a></p>
+            <p class="mb-1"><a class="custom-link" href="#" target="_blank">Backend/Bridge (GitHub)</a></p>
+            <p class="mb-1"><a class="custom-link" href="#" target="_blank">Dashboard JSON / Setup</a></p>
+            <p class="mb-1"><a class="custom-link" href="#" target="_blank">Project write-up</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section id="contact" class="contact section-padding">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-7">
+            <h2 class="text-white mb-3">Want something like AgriOT for your farm?</h2>
+            <p class="text-white-50 mb-0">Custom sensors, robust firmware, and clean dashboards — tailored to your workflow.</p>
+          </div>
+          <div class="col-lg-5 mt-4 mt-lg-0">
+            <form action="#" method="get" class="custom-form contact-form" role="form">
+              <div class="row">
+                <div class="col-md-6"><input class="form-control" name="name" placeholder="Name" required></div>
+                <div class="col-md-6"><input class="form-control" name="email" type="email" placeholder="Email" required></div>
+                <div class="col-12 mt-3"><textarea class="form-control" name="message" placeholder="Tell me about your use-case"></textarea></div>
+                <div class="col-12 mt-3"><button type="submit" class="form-control">Send</button></div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container"><div class="row"><div class="col-12">
+      <div class="copyright-text-wrap">
+        <p class="mb-0">© <script>document.write(new Date().getFullYear())</script> Abdul Haseeb · Built with Bootstrap · Template by <a rel="sponsored" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+      </div>
+    </div></div></div>
+  </footer>
+
+  <!-- JS (paths up one level) -->
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/jquery.sticky.js"></script>
+  <script src="../js/click-scroll.js"></script>
+  <script src="../js/jquery.magnific-popup.min.js"></script>
+  <script src="../js/magnific-popup-options.js"></script>
+  <script src="../js/custom.js"></script>
+</body>
+</html>
