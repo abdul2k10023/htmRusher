@@ -67,6 +67,15 @@
             <span class="stack-dark-badge">Flask / Node.js</span>
             <span class="stack-dark-badge">Grafana</span>
           </div>
+
+          <div class="mt-2">
+            <a href="https://github.com/orgs/agriOTde/repositories" 
+              target="_blank" 
+              class="text-white text-decoration-none lead">
+              <u>GitHub/agriFW</u> <i class="bi-box-arrow-up-right ms-1"></i>
+            </a>
+          </div>
+
         </div>
         <div class="col-lg-5">
           <img class="img-fluid rounded-4 shadow" src="../images/projects/grafana.jpg" alt="AgriOT overview">
@@ -83,21 +92,69 @@
           <div class="col-lg-7">
           <h2 class="mb-3">Overview</h2>
           <p>
-            The AgriOT project is about building a fully automated greenhouse monitoring and irrigation system with the goal of
-            <strong>increasing crop yield in controlled environments</strong>. The vision is to have sensor nodes spread across
-            the greenhouse — each covering a cluster of plants or crops — that continuously measure critical environmental and
-            soil conditions.
+            The idea for <strong>AgriOT</strong> came from my own background in Sindh, Pakistan, where my family has been farming 
+            for generations. Cultivating crops there is extremely challenging — water scarcity dominates most of the year, 
+            temperatures are harsh, and growing off-season vegetables is nearly impossible without precise control of soil and 
+            climate conditions. Agriculture in Sindh is mostly focused on traditional cash crops such as 
+            <strong>sugarcane, cotton, rice, and wheat</strong>, while modern approaches like greenhouses are rarely adopted. 
+            Yet, greenhouses could enable farmers to diversify into high-value off-season vegetables and fruits that currently 
+            only thrive in the northern regions.
           </p>
+
+          <!-- Images: Water scarcity in Sindh -->
+          <div class="row text-center my-4">
+            <div class="col-md-6 col-12 mb-4">
+              <a href="../images/projects/scarcity.jpg" class="popup-image">
+                <img src="../images/projects/scarcity.jpg" alt="Water scarcity in Sindh" class="img-fluid rounded-3 shadow">
+              </a>
+            </div>
+            <div class="col-md-6 col-12 mb-4">
+              <a href="../images/projects/Cotton-Pic-3.jpg" class="popup-image">
+                <img src="../images/projects/Cotton-Pic-3.jpg" alt="Drought conditions in Sindh" class="img-fluid rounded-3 shadow">
+              </a>
+            </div>
+          </div>
+
           <p>
-            Each ESP32-based RS-485 node reports values like <em>ambient temperature, humidity, soil temperature, soil moisture,
-            soil pH, and light intensity</em>. Based on this data, the system automatically irrigates each crop or plant through
-            per-zone pump/valve control. All readings and states are published over <strong>MQTT</strong>, stored in databases,
-            and visualized in Grafana dashboards for real-time insight.
+              Seeing these challenges firsthand, I wanted to explore how <strong>data and automation</strong> could transform farming. 
+              I began by experimenting with simple soil and temperature sensors on small <strong>coriander and basil plants</strong>, 
+              just to see if the data would be useful. Over time, this grew into a complete system: adding DC motors for irrigation, 
+              moving from bare-metal programming to a structured <strong>FreeRTOS</strong> design, and eventually integrating 
+              <strong>OTA updates</strong> for continuous development
           </p>
+
+          <!-- Images: coriander basil -->
+          <div class="row text-center my-4">
+            <div class="col-md-6 col-12 mb-4">
+              <a href="../images/projects/basil.PNG" class="popup-image">
+                <img src="../images/projects/basil.PNG" alt="Home Grown Basil" class="img-fluid rounded-3 shadow" style="max-width:80%; height:auto;">
+              </a>
+            </div>
+            <div class="col-md-6 col-12 mb-4">
+              <a href="../images/projects/coriander.PNG" class="popup-image">
+                <img src="../images/projects/coriander.PNG" alt="Home Grown Coriander" class="img-fluid rounded-3 shadow" style="max-width:80%; height:auto;">
+              </a>
+            </div>
+          </div>
+
           <p>
-            This setup not only ensures optimal irrigation but also builds a large dataset that can later be used to
-            <strong>train machine learning models</strong> for crop growth prediction and yield estimation. The idea is to move
-            towards predictive agriculture where future irrigation schedules and growth forecasts are guided by historical data.
+            Today, AgriOT is about building a <strong>fully automated greenhouse monitoring and irrigation system</strong> with the 
+            goal of <strong>increasing crop yield in controlled environments</strong>. Sensor nodes are spread across the greenhouse — 
+            each covering a cluster of plants or crops — continuously measuring critical environmental and soil conditions.
+          </p>
+
+          <p>
+            Each <strong>ESP32-based RS-485 node</strong> reports values like ambient temperature, humidity, soil temperature, 
+            soil moisture, soil pH, and light intensity. Based on this data, the system automatically irrigates each crop or plant 
+            through per-zone pump/valve control. All readings and states are published over <strong>MQTT</strong>, stored in 
+            databases, and visualized in <strong>Grafana dashboards</strong> for real-time insight.
+          </p>
+
+          <p>
+            This setup not only ensures optimal irrigation but also builds a large dataset that can later be used to 
+            <strong>train machine learning models</strong> for crop growth prediction and yield estimation. 
+            The vision is to move towards <strong>predictive agriculture</strong>, where irrigation schedules and growth forecasts 
+            are guided by historical and sensor-driven data.
           </p>
           <div class="arch mt-3">
             <h5 class="mb-2">Future Work</h5>
@@ -108,38 +165,92 @@
               <li>Expand datasets to improve yield prediction and optimize farming strategies.</li>
             </ul>
           </div>
-            <div class="arch mt-3">
-              <h5 class="mb-2">Architecture</h5>
-              <ul class="mb-0 spec">
-                <li>ESP32 firmware (C/ESP-IDF) with FreeRTOS tasks: <span class="kbd">sensors</span>, <span class="kbd">uplink</span>, <span class="kbd">ota</span>, <span class="kbd">control</span>.</li>
-                <li>RS-485 (Modbus-RTU) multi-drop bus for pH/moisture/NPK sensors; optional flow meter & pump relay.</li>
-                <li>MQTT broker (Mosquitto/EMQX). Topics: <span class="kbd">agriot/&lt;nodeId&gt;/tele</span>, <span class="kbd">.../state</span>, <span class="kbd">.../cmd</span>, <span class="kbd">.../ota</span>.</li>
-                <li>Backend bridge (Python/Node) for rules, acks, and persistence to PostgreSQL/Influx.</li>
-                <li>Grafana dashboards + alerting for thresholds and offline nodes.</li>
-              </ul>
-            </div>
+
           </div>
           <div class="col-lg-5">
             <h2 class="mb-3">Key FW Features</h2>
             <ul class="spec">
               <li>FreeRTOS-based real-time system with dedicated tasks</li>
+                  <ul>
+                    <li><strong>SHT 41 Sensor Task</strong></li>
+                    <li><strong>RS485 Soil Sensor Task</strong></li>
+                    <li><strong>MQTT Uplink Task</strong></li>
+                    <li><strong>OTA Task</strong></li>
+                    <li><strong>Motor Control Task</strong></li>
+                  </ul>
               <li>MQTT-based topic logging & subscription</li>
               <li>MQTT-driven OTA update pipeline</li>
               <li>Motor (pump/valve) control with feedback</li>
               <li>Improved error handling & reconnection strategies</li>
             </ul>
 
+            <h2 class="mt-4 mb-3">Planned FW features</h2> 
+              <ul class="spec">
+                <li>Saving all crucial runtime parameters in <strong>NVS</strong></li>
+                <li>Implementing actual <strong>ACK/NAK responses</strong> to commands</li>
+                <li><strong>MQTT over TLS</strong> for secure connectivity</li>
+                <li>Low-power modes (sleep / deep sleep) for energy efficiency</li>
+                <li>Storing <strong>PKI credentials</strong> securely in EEPROM</li>
+                <li>Buffered data backup in case of connection loss</li>
+                <li>Plug & Play RS485 sensor using load switches</li>
+              </ul> 
+
             <h2 class="mt-4 mb-3">Hardware</h2>
             <ul class="spec">
-              <li>MCU: ESP32-WROOM-32.</li>
-              <li>Comms: RS-485 transceiver, ESD protection, bias/termination jumpers.</li>
-              <li>Power: 12 V input → buck 5 V / 3.3 V rails, reverse/over-voltage protection.</li>
-              <li>I/O: Relay driver for pump/valve, flowmeter input, I²C header for expansion.</li>
+              <li><strong>MCU:</strong> ESP32-WROOM-32.</li>
+              <li><strong>Comms:</strong> 2x RS-485 dedicated circuitry,  I²C, UART .</li>
+              <li><strong>Power:</strong> 12 V input → buck 5 V / 3.3 V rails, reverse/over-voltage protection.</li>
+              <li><strong>I/O:</strong> 2x Solenoid Valve Control Outputs, 1x 12vdc Motor Control, 2x RS485 Soil Sensor Inputs</li>
             </ul>
+
+                        <!-- PCB + Schematics Gallery -->
+            <div class="row text-center mt-4">
+              <div class="col-md-6 col-12 mb-4">
+                <a href="../images/projects/Easy_eda_PCB.jpg" class="popup-image">
+                  <img src="../images/projects/Easy_eda_PCB.jpg"
+                      alt="AgriOT PCB"
+                      class="img-fluid rounded-3 shadow">
+                </a>
+                <small class="d-block text-muted mt-2">AgriOT PCB Layout</small>
+              </div>
+
+              <div class="col-md-6 col-12 mb-4">
+                <a href="../images/projects/schematic.jpg" class="popup-image">
+                  <img src="../images/projects/schematic.jpg"
+                      alt="AgriOT Schematics"
+                      class="img-fluid rounded-3 shadow">
+                </a>
+                <small class="d-block text-muted mt-2">AgriOT Hardware Schematics</small>
+              </div>
+            </div>
+                        <div class="arch mt-3">
+              <h5 class="mb-2">Architecture</h5>
+              <ul class="mb-0 spec">
+                <li>ESP32 firmware (C/ESP-IDF) with FreeRTOS tasks for sensors, uplink, OTA, and control.</li>
+                <li>RS-485 (Modbus-RTU) multi-drop bus for soil sensors (moisture, pH, NPK); plus SHT41 for temp/humidity.</li>
+                <li>MQTT broker on Raspberry Pi (with TLS), bridging ESP32 nodes to the server.</li>
+                <li>Server stack: PostgreSQL (storage), PostgREST (API), Grafana (dashboards & alerts).</li>
+                <li>Motor and solenoid control for automated irrigation, with power management and OTA updates.</li>
+              </ul>
+
+                        <!-- Architecture flow diagram with overlay -->
+            <div class="text-center mt-4">
+              <a href="../images/projects/General_block_diag.jpg" class="popup-image">
+                <img src="../images/projects/General_block_diag.jpg"
+                    alt="AgriOT Architecture Diagram"
+                    class="img-fluid rounded-3 shadow">
+              </a>
+              <small class="d-block text-muted mt-2">Click to enlarge architecture flow diagram</small>
+            </div>
+            </div>
+
+
           </div>
         </div>
       </div>
     </section>
+
+
 
     <!-- Screens / Gallery -->
     <section class="projects section-padding pt-0">
