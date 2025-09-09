@@ -11,12 +11,23 @@
 
 /* Project footer links (GitHub, Details, etc.) */
 .custom-link {
-  background: transparent !important;
+  background: #ffffff;
   color: #000000 !important;        /* light gray */
   text-decoration: none;
   padding: 0 !important;
 }
 .custom-link:hover {
   color: #00b3ff !important;        /* white on hover */
+  text-decoration: underline;    /* or none if you prefer */
+}
+/* Project footer links (GitHub, Details, etc.) */
+.project-footer-custom-link {
+  background: #ffffff;
+  color: #000000;        /* light gray */
+  text-decoration: none;
+  padding: 0;
+}
+.project-footer-custom-link:hover {
+  color: #00b3ff;        /* white on hover */
   text-decoration: underline;    /* or none if you prefer */
 }

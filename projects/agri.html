@@ -34,7 +34,10 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <a href="../index.html" class="navbar-brand mx-auto mx-lg-0">Haseeb</a>
+      <a href="../index.html" class="navbar-brand mx-auto mx-lg-0">
+        <img src="../images/new_vil_image.jpeg" alt="Haseeb" 
+            style="height:40px; width:40px; border-radius:50%; object-fit:cover;">
+      </a>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-lg-5">
@@ -45,7 +48,7 @@
           <li class="nav-item"><a class="nav-link" href="../index.html#section_5">Contact</a></li>
         </ul>
         <div class="d-lg-flex align-items-center d-none ms-auto">
-          <a class="custom-btn btn" href="#contact">Get in touch</a>
+          <a class="custom-btn btn" href="#contact">Get in touch with Haseeb</a>
         </div>
       </div>
     </div>
@@ -68,7 +71,7 @@
             <span class="stack-dark-badge">Grafana</span>
           </div>
 
-          <div class="mt-2">
+          <div class="mt-4">
             <a href="https://github.com/orgs/agriOTde/repositories" 
               target="_blank" 
               class="text-white text-decoration-none lead">
@@ -227,7 +230,7 @@
               <h5 class="mb-2">Architecture</h5>
               <ul class="mb-0 spec">
                 <li>ESP32 firmware (C/ESP-IDF) with FreeRTOS tasks for sensors, uplink, OTA, and control.</li>
-                <li>RS-485 (Modbus-RTU) multi-drop bus for soil sensors (moisture, pH, NPK); plus SHT41 for temp/humidity.</li>
+                <li>RS-485 (Modbus-RTU) multi-drop bus for soil sensors (Temperature, moisture, pH); plus SHT41 for Ambient temp/humidity.</li>
                 <li>MQTT broker on Raspberry Pi (with TLS), bridging ESP32 nodes to the server.</li>
                 <li>Server stack: PostgreSQL (storage), PostgREST (API), Grafana (dashboards & alerts).</li>
                 <li>Motor and solenoid control for automated irrigation, with power management and OTA updates.</li>
@@ -258,12 +261,12 @@
         <h2 class="mb-4">Screens & Photos</h2>
         <div class="row">
           <div class="col-md-4 col-12 mb-4">
-            <a href="../images/projects/nikhil-KO4io-eCAXA-unsplash.jpg" class="popup-image">
-              <img src="../images/projects/nikhil-KO4io-eCAXA-unsplash.jpg" class="projects-image img-fluid rounded-3" alt="Node PCB">
+            <a href="../images/projects/PCB.jpeg" class="popup-image">
+              <img src="../images/projects/PCB.jpeg" class="projects-image img-fluid rounded-3" alt="Node PCB">
             </a>
             <small class="d-block mt-2 text-muted">Node hardware</small>
           </div>
-          <div class="col-md-4 col-12 mb-4">
+          <!-- <div class="col-md-4 col-12 mb-4">
             <a href="../images/projects/the-5th-IQYR7N67dhM-unsplash.jpg" class="popup-image">
               <img src="../images/projects/the-5th-IQYR7N67dhM-unsplash.jpg" class="projects-image img-fluid rounded-3" alt="Dashboard">
             </a>
@@ -274,7 +277,7 @@
               <img src="../images/projects/true-agency-9Bjog5FZ-oc-unsplash.jpg" class="projects-image img-fluid rounded-3" alt="Sensors">
             </a>
             <small class="d-block mt-2 text-muted">Soil sensors</small>
-          </div>
+          </div> -->
         </div>
       </div>
     </section>
@@ -300,10 +303,10 @@
           </div>
           <div class="col-lg-6">
             <h2 class="mb-3">Links</h2>
-            <p class="mb-1"><a class="custom-link" href="#" target="_blank">Firmware (GitHub)</a></p>
-            <p class="mb-1"><a class="custom-link" href="#" target="_blank">Backend/Bridge (GitHub)</a></p>
-            <p class="mb-1"><a class="custom-link" href="#" target="_blank">Dashboard JSON / Setup</a></p>
-            <p class="mb-1"><a class="custom-link" href="#" target="_blank">Project write-up</a></p>
+            <p class="mb-1"><a class=".project-footer-custom-link" href="#" target="_blank">Firmware (GitHub)</a></p>
+            <p class="mb-1"><a class=".project-footer-custom-link" href="#" target="_blank">Backend/Bridge (GitHub)</a></p>
+            <p class="mb-1"><a class=".project-footer-custom-link" href="#" target="_blank">Dashboard JSON / Setup</a></p>
+            <p class="mb-1"><a class=".project-footer-custom-link" href="#" target="_blank">Project write-up</a></p>
           </div>
         </div>
       </div>
@@ -314,8 +317,8 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-7">
-            <h2 class="text-white mb-3">Want something like AgriOT for your farm?</h2>
-            <p class="text-white-50 mb-0">Custom sensors, robust firmware, and clean dashboards — tailored to your workflow.</p>
+            <h2 class="text-black mb-3">Want something like AgriOT for your farm?</h2>
+            <p class="text-black-50 mb-0">Custom sensors, robust firmware, and clean dashboards — tailored to your workflow.</p>
           </div>
           <div class="col-lg-5 mt-4 mt-lg-0">
             <form action="#" method="get" class="custom-form contact-form" role="form">
