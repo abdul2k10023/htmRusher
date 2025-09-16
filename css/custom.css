@@ -31,3 +31,38 @@
   color: #00b3ff;        /* white on hover */
   text-decoration: underline;    /* or none if you prefer */
 }
+
+.project-hero {
+  position: relative;
+  padding: 96px 0 40px;
+  background: #535da1; /* fallback color */
+  color: #fff;
+  overflow: hidden;
+}
+
+/* make overlay image fill hero */
+.hero-overlay-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;          /* full hero height */
+  z-index: 0;
+  opacity: 0.28;
+  pointer-events: none;
+}
+
+.hero-overlay-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* zoom & crop neatly */
+  transform: scale(1.1); /* extra zoom */
+  filter: brightness(.9);
+}
+
+/* text stays on top */
+.project-hero .container {
+  position: relative;
+  z-index: 1;
+}
+

@@ -15,6 +15,8 @@
   <link href="../css/bootstrap-icons.css" rel="stylesheet" />
   <link href="../css/magnific-popup.css" rel="stylesheet" />
   <link href="../css/templatemo-first-portfolio-style.css" rel="stylesheet" />
+  <link href="../css/custom.css" rel="stylesheet" />
+
   <style>
     .project-hero { padding: 96px 0 40px; background: #535da1; color: #fff; }
     .stack-badge { display:inline-block; padding:.3rem .6rem; border-radius:999px; background:#f3f4f6; margin:.15rem; font-size:.85rem; }
@@ -55,7 +57,7 @@
   </nav>
 
   <!-- Hero -->
-  <header class="project-hero">
+  <!-- <header class="project-hero">
     <div class="container">
       <div class="row align-items-center gy-4">
         <div class="col-lg-7">
@@ -85,7 +87,43 @@
         </div>
       </div>
     </div>
-  </header>
+  </header> -->
+<header class="project-hero position-relative">
+  <!-- subtle overlay image -->
+  <div class="hero-overlay-img">
+    <img src="../images/projects/grafana.jpg" alt="Grafana teaser">
+  </div>
+
+  <!-- text container (always on top of image) -->
+  <div class="container position-relative">
+    <div class="row align-items-center gy-4">
+      <div class="col-lg-8">
+        <h1 class="text-white mb-2">AgriOT – Greenhouse IoT Nodes</h1>
+        <p class="lead mb-3 text-white">
+          ESP32 RS-485 nodes reading soil sensors (moisture / pH / NPK), with MQTT control,
+          OTA firmware, and Grafana dashboards for growers.
+        </p>
+
+        <div>
+          <span class="stack-dark-badge">ESP32 / ESP-IDF</span>
+          <span class="stack-dark-badge">FreeRTOS</span>
+          <span class="stack-dark-badge">RS-485 (Modbus)</span>
+          <span class="stack-dark-badge">MQTT</span>
+          <span class="stack-dark-badge">Flask / Node.js</span>
+          <span class="stack-dark-badge">Grafana</span>
+        </div>
+
+        <div class="mt-4">
+          <a href="https://github.com/orgs/agriOTde/repositories" 
+             target="_blank" 
+             class="text-white text-decoration-none lead">
+            <u>GitHub/agriFW</u> <i class="bi-box-arrow-up-right ms-1"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
 
   <main>
     <!-- Overview -->
@@ -146,12 +184,28 @@
             each covering a cluster of plants or crops — continuously measuring critical environmental and soil conditions.
           </p>
 
+                    <!-- Images: coriander basil -->
+
+            <div class="text-center my-4">
+              <a href="../images/projects/Complet_project.jpeg" class="popup-image">
+                <img src="../images/projects/Complet_project.jpeg" alt="Home Grown Basil" class="img-fluid rounded-3 shadow" style="max-width:40%; height:auto;">
+                <small class="d-block text-muted mt-2">Working PCB sending data to PostgreSQL DB</small>
+              </a>
+            </div>
+
           <p>
             Each <strong>ESP32-based RS-485 node</strong> reports values like ambient temperature, humidity, soil temperature, 
             soil moisture, soil pH, and light intensity. Based on this data, the system automatically irrigates each crop or plant 
             through per-zone pump/valve control. All readings and states are published over <strong>MQTT</strong>, stored in 
             databases, and visualized in <strong>Grafana dashboards</strong> for real-time insight.
           </p>
+
+          <div class="text-center my-4">
+              <a href="../images/projects/grafana.jpg" class="popup-image">
+                <img src="../images/projects/grafana.jpg" alt="Home Grown Basil" class="img-fluid rounded-3 shadow" style="max-width:60%; height:auto;">
+                <small class="d-block text-muted mt-2">Grafana Dashboard</small>
+              </a>
+            </div>
 
           <p>
             This setup not only ensures optimal irrigation but also builds a large dataset that can later be used to 
