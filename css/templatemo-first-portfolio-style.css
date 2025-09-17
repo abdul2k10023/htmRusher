@@ -246,6 +246,7 @@ strong {
 .navbar .custom-btn {
   font-size: var(--p-font-size);
   font-weight: var(--font-weight-bold);
+
 }
 
 .navbar .custom-btn {
@@ -272,7 +273,7 @@ strong {
 }
 
 .custom-btn:hover {
-  background: var(--primary-color);
+  background:#535da1;
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   color: var(--white-color);
 }
@@ -504,7 +505,7 @@ strong {
   top: 70px;
 }
 
-.hero-image-wrap {
+/* .hero-image-wrap {
   background: var(--white-color);
   border-radius: 100%;
   width: 350px;
@@ -516,7 +517,7 @@ strong {
   left: 0;
   margin: auto;
   pointer-events: none;
-}
+} */
 
 .hero-image {
   position: absolute;
